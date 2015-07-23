@@ -5,6 +5,9 @@
 #include <kurl.h>
 
 class KJob;
+namespace KIO {
+    class Job;
+}
 
 class KIOExample : public QMainWindow
 {
@@ -14,7 +17,9 @@ class KIOExample : public QMainWindow
 	KIOExample();
 
     protected slots:
-	void slotResult( KJob * job );
+	void slotResult( KJob * job, qulonglong size );
+	void slotHandleData( KIO::Job* job, const QByteArray & data );
 };
 
 #endif
+
